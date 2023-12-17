@@ -4,4 +4,4 @@ CREATE TABLE tgQian (
   score BIGINT NOT NULL,
   times BIGINT NOT NULL,
  PRIMARY KEY (id)
- )
+ );
