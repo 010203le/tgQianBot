@@ -1,0 +1,14 @@
+API_ID =  
+API_HASH = ""
+BOT_TOKEN = ""
+BOT_NAME = "" 
+TIME_ZONE = "Asia/Taipei"
+
+SQL_HOST = 'localhost:1433'
+SQL_USER = ''
+SQL_PASS = ''
+SQL_DB = ''
+
+CHAT_ID = 0 #指定簽到指令有效群組
+MODE = "MS_SQL" #MS_SQL or MySQL
+INFO_DELETE_TIME = 30 #機器人訊息自動刪除時間
