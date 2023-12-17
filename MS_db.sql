@@ -1,0 +1,7 @@
+CREATE TABLE tgQian (
+  id BIGINT NOT NULL,
+  last BIGINT NOT NULL,
+  score BIGINT NOT NULL,
+  times BIGINT NOT NULL,
+ PRIMARY KEY (id)
+ )
