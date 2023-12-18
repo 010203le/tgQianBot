@@ -9,24 +9,24 @@ conn = mysql.connector.connect(
     database = SQL_DB,
     user = SQL_USER, 
     password = SQL_PASS,
-    #ssl_disabled=False,
+    ssl_disabled=False,
 )
 
 def title_success(uid):
     with conn.cursor() as cursor:
-        update_query = f"UPDATE {SQL_DB} SET score = score-50 WHERE id = "+str(uid)+';'
+        update_query = f"UPDATE {SQL_DB} SET score = score-50 WHERE id = {uid};"
         cursor.execute(update_query)
         conn.commit()
 
 def title(uid):
     try:
         with conn.cursor() as cursor:
-            query = f"SELECT * FROM {SQL_DB} WHERE id = " + str(uid) + ';'
+            query = f"SELECT * FROM {SQL_DB} WHERE id = {uid};"
             cursor.execute(query)
             existing_user = cursor.fetchone()
 
             if existing_user:
-                queryLast = f"SELECT score FROM {SQL_DB} WHERE id = " + str(uid) + ';'
+                queryLast = f"SELECT score FROM {SQL_DB} WHERE id = {uid};"
                 cursor.execute(queryLast)
                 qScore = keepInt(cursor.fetchall())
                 if qScore < 50:
