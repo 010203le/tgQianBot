@@ -9,7 +9,7 @@ conn = mysql.connector.connect(
     database = SQL_DB,
     user = SQL_USER, 
     password = SQL_PASS,
-    ssl_disabled=False,
+    #ssl_disabled=False,
 )
 
 def title_success(uid):
