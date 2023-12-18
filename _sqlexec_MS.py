@@ -40,7 +40,7 @@ def title(uid):
 def lb():
     try:
         with conn.cursor() as cursor:
-            query = f"SELECT TOP 5 [id], [times] FROM [{SQL_DB}].[dbo].[tgQian] ORDER BY [times] DESC;"
+            query = f"SELECT TOP 5 id, times FROM {SQL_DB} ORDER BY times DESC;"
             cursor.execute(query)
             result = cursor.fetchall()
             d1=''
@@ -92,10 +92,10 @@ def q(uid, luck):
                     update_query = f"UPDATE {SQL_DB} SET times = times + 1, score = score+{luck}, last = {last} WHERE id = {uid}"
                     cursor.execute(update_query)
                     conn.commit()
-                    cursor.execute('SELECT times from tgQian WHERE id = '+str(uid))
+                    cursor.execute(f'SELECT times from {SQL_DB} WHERE id = {uid}')
                     return("這是你第 "+str(keepInt(cursor.fetchall()))+f"次簽到，本次簽到獲得 {luck} 分")
             else:
-                insert_query = f"INSERT INTO tgQian Values({uid},{last},{luck},1)"
+                insert_query = f"INSERT INTO {SQL_DB} Values({uid},{last},{luck},1)"
                 cursor.execute(insert_query)
                 conn.commit()
                 return(f'這是你第 1 次簽到，本次簽到獲得 {luck} 分')
